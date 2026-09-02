@@ -28,7 +28,9 @@ pub fn validate_lesson(lesson: &Lesson) -> Result<(), CurriculumError> {
         ));
     }
     if lesson.steps.is_empty() {
-        return Err(CurriculumError::Validation("lesson has no teaching steps".into()));
+        return Err(CurriculumError::Validation(
+            "lesson has no teaching steps".into(),
+        ));
     }
 
     let has_explanation = lesson
