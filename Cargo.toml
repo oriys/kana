@@ -1,7 +1,7 @@
 [workspace]
 resolver = "2"
 members = [
-    "apps/desktop",
+    "apps/cli",
     "crates/domain",
     "crates/curriculum",
     "tools/content-lint",
@@ -14,7 +14,6 @@ rust-version = "1.88"
 
 [workspace.dependencies]
 anyhow = "1"
-dioxus = { version = "0.7", features = ["desktop"] }
 serde = { version = "1", features = ["derive"] }
 serde_yaml = "0.9"
 thiserror = "2"
