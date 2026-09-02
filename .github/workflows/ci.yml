@@ -6,7 +6,7 @@ on:
   pull_request:
 
 jobs:
-  core:
+  rust:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -16,22 +16,11 @@ jobs:
           components: rustfmt, clippy
       - name: Format
         run: cargo fmt --all --check
-      - name: Clippy core
-        run: cargo clippy --workspace --all-targets --exclude kana-desktop -- -D warnings
-      - name: Test core
-        run: cargo test --workspace --exclude kana-desktop
+      - name: Clippy
+        run: cargo clippy --workspace --all-targets -- -D warnings
+      - name: Test
+        run: cargo test --workspace
       - name: Validate course content
         run: cargo run -p kana-content-lint -- content/zh-CN
-
-  desktop:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@stable
-        with:
-          toolchain: 1.88.0
-          components: clippy
-      - name: Check desktop
-        run: cargo check -p kana-desktop
-      - name: Clippy desktop
-        run: cargo clippy -p kana-desktop -- -D warnings
+      - name: Smoke test CLI
+        run: cargo run -p kana-cli -- list
