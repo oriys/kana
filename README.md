@@ -4,6 +4,28 @@ Kana 是一个面向中文母语零基础学习者的日语学习项目。
 
 目标不是做一个“背五十音 + 刷 JLPT 题”的题库，而是构建一个以真实沟通能力（Can-do）为主线、中文母语迁移规律为重点、本地优先的完整学习系统。
 
+## 当前状态
+
+仓库已经包含第一个可运行的 Rust / Dioxus Desktop 学习闭环：应用会加载结构化 YAML 课程，将「第一次见面」按学习目标、场景对话、中文讲解、中文学习者提醒、练习、主动输出与 Can-do 检查逐步呈现。
+
+在 macOS 上运行：
+
+```bash
+cargo run -p kana-desktop
+```
+
+校验所有课程内容：
+
+```bash
+cargo run -p kana-content-lint -- content/zh-CN
+```
+
+运行核心测试：
+
+```bash
+cargo test --workspace --exclude kana-desktop
+```
+
 ## 核心原则
 
 1. **Can-do 驱动**：先定义“学完能做什么”，再组织词汇、语法、发音、汉字与练习。
@@ -37,7 +59,7 @@ Kana 是一个面向中文母语零基础学习者的日语学习项目。
 
 ```text
 kana/
-├── apps/desktop/          # 桌面客户端
+├── apps/desktop/          # Dioxus 桌面客户端
 ├── crates/domain/         # 核心领域模型
 ├── crates/curriculum/     # 课程加载、校验与编译
 ├── content/zh-CN/         # 中文课程源内容
@@ -47,6 +69,6 @@ kana/
 
 ## 开发顺序
 
-当前先把 **Stage 0 的教学闭环** 做正确：讲解 → 输入 → 练习 → 真实任务 → 复习。第一批功能不会优先实现登录、排行榜或云端。
+当前优先把 **Stage 0 的教学闭环** 做正确：讲解 → 输入 → 练习 → 真实任务 → 复习。不会为了“功能齐全”提前堆登录、排行榜或云端。
 
 详见 `docs/PRODUCT.md`、`docs/PEDAGOGY.md`、`docs/CURRICULUM.md` 与 `docs/ARCHITECTURE.md`。
