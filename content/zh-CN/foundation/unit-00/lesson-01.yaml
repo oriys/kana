@@ -1,0 +1,110 @@
+id: foundation.u00.l01
+title: 日语的声音不是“汉字读音”
+can_do:
+  - 能理解日语以拍（mora）组织节奏，并清楚读出 あ・い・う・え・お 五个基础元音
+prerequisites: []
+concepts:
+  - id: pronunciation.mora
+    kind: pronunciation
+  - id: kana.a
+    kind: kana
+  - id: kana.i
+    kind: kana
+  - id: kana.u
+    kind: kana
+  - id: kana.e
+    kind: kana
+  - id: kana.o
+    kind: kana
+steps:
+  - type: goal
+    text: 这一课先不背五十音图。你只需要建立两个观念：日语有自己的声音系统；日语节奏按“拍”来感受。
+
+  - type: explanation
+    title: 先把中文读音放到一边
+    body: |-
+      你以后会看到很多熟悉的汉字，例如 中国、学校、先生。认识字形是中文母语者的巨大优势，但汉字的日语读音必须重新学习。
+
+      学日语时要把“看懂汉字”和“听懂、说出日语”当作两项不同技能。今天我们先从声音开始，而不是从汉字开始。
+
+  - type: chinese_learner_note
+    title: 会认汉字，不等于会日语
+    body: |-
+      中文母语者很容易在看到汉字时直接得到中文意义，于是产生“我已经会这个词”的感觉。
+
+      Kana 会经常安排先听、后看文字的任务，目的就是让你的日语声音记忆不依赖中文汉字读音。
+
+  - type: explanation
+    title: 日语的节奏单位：拍（mora）
+    body: |-
+      初学阶段可以把 mora 暂时理解为日语里的“节拍格子”。很多日语声音占一拍，之后你会遇到的 ん、促音 っ 和长音也会占拍。
+
+      例如 こんにちは 可以按 こ・ん・に・ち・は 感受为五拍，而不是按照中文习惯把它压成几个模糊音节。
+
+      现在不需要记术语定义，只要从第一天开始养成“一拍一拍听”的习惯。
+
+  - type: dialogue
+    context: 这一小段不是会话，而是你的第一组日语声音。先慢慢地一拍一个音读。
+    lines:
+      - speaker: 声音 1
+        japanese: あ
+        reading: あ
+        zh_cn: a；嘴巴自然打开，声音短而清楚
+      - speaker: 声音 2
+        japanese: い
+        reading: い
+        zh_cn: i；嘴角稍向两侧，不要拖长
+      - speaker: 声音 3
+        japanese: う
+        reading: う
+        zh_cn: u；日语的 う 不要机械套用普通话“乌”的口型
+      - speaker: 声音 4
+        japanese: え
+        reading: え
+        zh_cn: e；保持单一、清楚的元音
+      - speaker: 声音 5
+        japanese: お
+        reading: お
+        zh_cn: o；保持短而稳定
+
+  - type: comprehension
+    prompt: 为什么这一课不直接让你背完整五十音图？
+    choices:
+      - 因为要先建立日语声音和节奏，再把声音与假名稳定连接
+      - 因为五十音图不重要
+      - 因为日语只有五个假名
+    answer: 0
+    explanation: 假名当然重要，但如果只记图形和罗马字，很容易形成“看得懂却听不出、说不准”的学习方式。
+
+  - type: explanation
+    title: あ・い・う・え・お 是五个声音，也是五个假名
+    body: |-
+      あ　い　う　え　お
+      a   i   u   e   o
+
+      罗马字只在最开始帮助你建立映射，之后会逐渐隐藏。最终目标是看到 あ 就直接想到它的声音，而不是先经过字母 a。
+
+      今天先做到：看到这五个假名能读；听到这五个声音时，知道它们彼此不同。
+
+  - type: exercise
+    prompt: 按一拍一个音的节奏读三遍：あ・い・う・え・お。然后不看罗马字，再读一次。
+    answer: あ・い・う・え・お
+    explanation: 重点不是速度，而是五个音都短、清楚、彼此分开，不吞音，也不刻意拖长。
+    skill: production
+
+  - type: exercise
+    prompt: 看到顺序 お・え・う・い・あ，请从左到右读出来。
+    answer: お・え・う・い・あ
+    explanation: 打乱顺序可以避免只靠“a i u e o”的固定背诵序列作答。
+    skill: recognition
+
+  - type: production_task
+    prompt: 不看罗马字，依次指出并读出 あ・い・う・え・お；然后把顺序倒过来读 お・え・う・い・あ。每个音只占一拍。
+    success_criteria:
+      - 不依赖 a i u e o 才能认出五个假名
+      - 五个音都能独立、清楚地发出
+      - 能按一拍一个音保持均匀节奏
+      - 倒序时仍能读出，不只会背固定顺序
+
+  - type: can_do_check
+    prompt: 现在隐藏罗马字后，你能认出并读出 あ・い・う・え・お，并理解“日语要一拍一拍听”是什么意思吗？
