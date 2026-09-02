@@ -1,6 +1,7 @@
 [workspace]
 resolver = "2"
 members = [
+    "apps/desktop",
     "crates/domain",
     "crates/curriculum",
     "tools/content-lint",
@@ -13,6 +14,9 @@ rust-version = "1.85"
 
 [workspace.dependencies]
 anyhow = "1"
+dioxus = { version = "0.7", features = ["desktop"] }
 serde = { version = "1", features = ["derive"] }
 serde_yaml = "0.9"
 thiserror = "2"
+kana-domain = { path = "crates/domain" }
+kana-curriculum = { path = "crates/curriculum" }
