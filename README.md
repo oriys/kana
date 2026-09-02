@@ -2,87 +2,70 @@
 
 Kana 是一个面向中文母语零基础学习者的日语学习 CLI。
 
-目标不是做一个“背五十音 + 刷 JLPT 题”的题库，而是构建一个以真实沟通能力（Can-do）为主线、中文母语迁移规律为重点、本地优先的完整学习系统。
+当前第一阶段只聚焦三件事：
 
-## 当前形态
+1. **假名**：从声音系统开始，完整掌握平假名、片假名、浊音、半浊音、拗音、促音、长音、拨音。
+2. **N5 词汇**：按主题和使用场景组织，不做孤立词表；每个词包含读音、中文义、例句、常见搭配和中文学习者提醒。
+3. **N5 语法**：按“能表达什么”组织，从句型功能出发，再解释助词、动词变化和形容词变化。
 
-**只做 CLI，不做桌面 GUI。**
+暂时不扩展到 N4、不做 GUI、不做云端、不做 AI 对话。
 
-核心学习流程全部在终端完成：
+## 第一阶段学习路径
 
 ```text
-课程列表
+假名与声音
   ↓
-选择课程
+基础高频词汇
   ↓
-目标 / 场景 / 讲解
+基础句型
   ↓
-练习
+N5 词汇 + 语法
   ↓
-主动输出
-  ↓
-Can-do 检查
+综合阅读 / 听辨 / 造句
 ```
 
-运行：
+## CLI
 
 ```bash
 cargo run -p kana-cli -- list
 cargo run -p kana-cli -- learn foundation.sound.l01
-cargo run -p kana-cli -- learn a1.u01.l01
+cargo run -p kana-cli -- learn kana.hiragana.a-row
+cargo run -p kana-cli -- learn n5.vocab.people.001
+cargo run -p kana-cli -- learn n5.grammar.desu
 ```
 
-校验课程内容：
+## 内容原则
 
-```bash
-cargo run -p kana-content-lint -- content/zh-CN
-```
-
-运行测试：
-
-```bash
-cargo test --workspace
-```
-
-## 核心原则
-
-1. **Can-do 驱动**：先定义“学完能做什么”，再组织词汇、语法、发音、汉字与练习。
-2. **Chinese-first**：不是翻译英文教材；显式处理汉字正迁移、同形异义、中文音韵干扰和中文学习者常见发音问题。
-3. **先理解再练习**：课程必须包含讲解、输入、注意、使用与反馈，不能一进入学习就直接做题。
-4. **声音优先**：零基础阶段先建立日语的 mora、长音、促音、拨音、拗音等声音模型，再逐步淡出罗马音。
-5. **本地优先**：核心课程、学习状态与复习调度默认离线可用。
-6. **Content as Code**：课程内容独立于 CLI，以结构化 YAML 维护，经过 lint 后进入学习流程。
-7. **可解释学习状态**：后续按 recognition、listening、reading、production、usage 等技能记录掌握度。
-
-## 第一阶段范围
-
-- Stage 0：声音与假名基础
-- Stage 1：A1 日常沟通课程
-- CLI 学习器
-- 内容 lint / test
-- FSRS 间隔复习基础设施（后续）
-- SQLite 本地学习状态（后续）
-
-账号、多端同步、GUI、ASR 发音评分和 AI 对话不属于当前阶段。
-
-## 技术方向
-
-- Rust workspace
-- 纯终端 CLI
-- Serde + YAML（课程源文件）
-- SQLite + SQLx（学习状态阶段）
-- FSRS（复习阶段）
+- 所有讲解使用中文。
+- 假名不是只靠五十音表死记，必须包含声音、辨认、输入和混淆对比。
+- N5 词汇按主题和语境组织，并显式标注中日汉字关系与同形异义风险。
+- N5 语法不按术语堆砌，而按“我现在能表达什么”组织。
+- 每个 Lesson 必须有讲解、练习、主动输出和最终 Can-do 检查。
+- JLPT N5 只作为范围和阶段验收参考，不把课程做成题库。
 
 ## 仓库结构
 
 ```text
 kana/
-├── apps/cli/              # 终端学习器
-├── crates/domain/         # 核心领域模型
-├── crates/curriculum/     # 课程加载与校验
-├── content/zh-CN/         # 中文课程源内容
-├── docs/                  # 产品、教学与架构规范
-└── tools/content-lint/    # 内容静态检查
+├── apps/cli/
+├── crates/domain/
+├── crates/curriculum/
+├── content/zh-CN/
+│   ├── foundation/
+│   ├── kana/
+│   └── n5/
+│       ├── vocabulary/
+│       └── grammar/
+├── docs/
+└── tools/content-lint/
 ```
 
-详见 `docs/PRODUCT.md`、`docs/PEDAGOGY.md`、`docs/CURRICULUM.md` 与 `docs/ARCHITECTURE.md`。
+## 当前优先级
+
+P0：完整假名课程结构与第一批课程。
+
+P1：N5 词汇分类、词条格式、第一批高频词汇课程。
+
+P2：N5 语法地图、第一批基础句型课程。
+
+P3：CLI 学习体验、学习状态和复习机制。
