@@ -41,10 +41,7 @@ pub fn validate_lesson(lesson: &Lesson) -> Result<(), CurriculumError> {
         .steps
         .iter()
         .any(|step| matches!(step, LessonStep::ProductionTask { .. }));
-    let has_can_do_check = lesson
-        .steps
-        .iter()
-        .any(|step| matches!(step, LessonStep::CanDoCheck { .. }));
+    let ends_with_can_do_check = matches!(lesson.steps.last(), Some(LessonStep::CanDoCheck { .. }));
 
     if !has_explanation {
         return Err(CurriculumError::Validation(
@@ -56,7 +53,7 @@ pub fn validate_lesson(lesson: &Lesson) -> Result<(), CurriculumError> {
             "lesson must contain an active production task".into(),
         ));
     }
-    if !has_can_do_check {
+    if !ends_with_can_do_check {
         return Err(CurriculumError::Validation(
             "lesson must end with a Can-do check".into(),
         ));
@@ -118,5 +115,30 @@ steps:
 
         let error = load_lesson(yaml).unwrap_err();
         assert!(error.to_string().contains("explanation"));
+    }
+
+    #[test]
+    fn requires_can_do_check_to_be_the_final_step() {
+        let yaml = r#"
+id: bad.order
+title: 顺序错误
+can_do:
+  - 能完成课程
+steps:
+  - type: explanation
+    title: 讲解
+    body: 内容
+  - type: production_task
+    prompt: 请输出
+    success_criteria: [完成输出]
+  - type: can_do_check
+    prompt: 能做到吗？
+  - type: explanation
+    title: 多余步骤
+    body: Can-do 后不应继续教学
+"#;
+
+        let error = load_lesson(yaml).unwrap_err();
+        assert!(error.to_string().contains("end with a Can-do check"));
     }
 }
