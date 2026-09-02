@@ -138,7 +138,12 @@ fn render_step(step: LessonStep) -> Element {
                 }
             }
         },
-        LessonStep::Comprehension { prompt, choices, answer, explanation } => rsx! {
+        LessonStep::Comprehension {
+            prompt,
+            choices,
+            answer,
+            explanation,
+        } => rsx! {
             h2 { "{prompt}" }
             for choice in &choices {
                 button { class: "choice", "{choice}" }
@@ -156,7 +161,12 @@ fn render_step(step: LessonStep) -> Element {
                 div { class: "body", "{body}" }
             }
         },
-        LessonStep::Exercise { prompt, answer, explanation, .. } => rsx! {
+        LessonStep::Exercise {
+            prompt,
+            answer,
+            explanation,
+            ..
+        } => rsx! {
             h2 { "自己试一下" }
             p { class: "body", "{prompt}" }
             div { class: "answer",
@@ -165,7 +175,10 @@ fn render_step(step: LessonStep) -> Element {
                 "{explanation}"
             }
         },
-        LessonStep::ProductionTask { prompt, success_criteria } => rsx! {
+        LessonStep::ProductionTask {
+            prompt,
+            success_criteria,
+        } => rsx! {
             h2 { "现在由你来说" }
             p { class: "body", "{prompt}" }
             ul { class: "criteria",
