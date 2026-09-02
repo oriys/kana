@@ -6,7 +6,7 @@ Kana 是一个面向中文母语零基础学习者的日语学习项目。
 
 ## 当前状态
 
-仓库已经包含第一个可运行的 Rust / Dioxus Desktop 学习闭环：应用会加载结构化 YAML 课程，将「第一次见面」按学习目标、场景对话、中文讲解、中文学习者提醒、练习、主动输出与 Can-do 检查逐步呈现。
+仓库已经包含第一个可运行的 Rust / Dioxus Desktop 学习闭环。应用从 **Stage 0 第一课「日语的声音不是“汉字读音”」** 开始，先建立 mora（拍）和 あ・い・う・え・お 的声音意识，再进入假名与 A1 场景课程。课程按学习目标、输入、中文讲解、中文学习者提醒、练习、主动输出与 Can-do 检查逐步呈现。
 
 在 macOS 上运行：
 
@@ -48,8 +48,8 @@ cargo test --workspace --exclude kana-desktop
 
 ## 技术方向
 
-- Rust workspace
-- Dioxus Desktop
+- Rust workspace（MSRV 1.88）
+- Dioxus 0.7 Desktop
 - SQLite + SQLx
 - Serde + YAML（课程源文件）
 - FSRS（后续接入 `fsrs-rs`）
