@@ -24,7 +24,10 @@ fn visit(path: &Path, checked: &mut usize) -> Result<()> {
         return Ok(());
     }
 
-    let is_yaml = matches!(path.extension().and_then(|v| v.to_str()), Some("yaml" | "yml"));
+    let is_yaml = matches!(
+        path.extension().and_then(|v| v.to_str()),
+        Some("yaml" | "yml")
+    );
     if !is_yaml {
         return Ok(());
     }
