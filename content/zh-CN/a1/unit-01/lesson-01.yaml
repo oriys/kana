@@ -1,0 +1,104 @@
+id: a1.u01.l01
+title: 第一次见面
+can_do:
+  - 能在第一次见面时说出自己的姓名和来自哪里，并完成基础寒暄
+prerequisites: []
+concepts:
+  - id: expression.hajimemashite
+    kind: expression
+  - id: grammar.desu
+    kind: grammar
+  - id: expression.kara-kimashita
+    kind: expression
+  - id: expression.yoroshiku-onegaishimasu
+    kind: expression
+steps:
+  - type: goal
+    text: 学完这一课，你可以用四句很短的日语完成第一次自我介绍。
+
+  - type: dialogue
+    context: 你第一次参加一个日语交流活动。田中先向你打招呼，你需要简单介绍自己。
+    lines:
+      - speaker: 田中
+        japanese: はじめまして。
+        reading: はじめまして。
+        zh_cn: 初次见面。
+      - speaker: 王
+        japanese: 王です。
+        reading: おうです。
+        zh_cn: 我是王。
+      - speaker: 王
+        japanese: 中国から来ました。
+        reading: ちゅうごくからきました。
+        zh_cn: 我来自中国。
+      - speaker: 王
+        japanese: よろしくお願いします。
+        reading: よろしくおねがいします。
+        zh_cn: 请多关照。
+
+  - type: comprehension
+    prompt: 这段对话最可能发生在什么场景？
+    choices:
+      - 两个人第一次见面
+      - 在餐厅点菜
+      - 在车站问路
+    answer: 0
+    explanation: はじめまして 是典型的首次见面寒暄语，后面紧接姓名和来自哪里。
+
+  - type: explanation
+    title: 先把整段寒暄当成一个可用的表达
+    body: |-
+      初学时不需要马上拆解每一个词。先记住这四句分别承担“第一次见面、报姓名、说来源、结束寒暄”的功能。
+
+      はじめまして。
+      王です。
+      中国から来ました。
+      よろしくお願いします。
+
+      你现在的目标不是背语法术语，而是能在真实第一次见面时把这四步说出来。
+
+  - type: explanation
+    title: 王です —— 日语不需要每句都说“我”
+    body: |-
+      王です 可以自然地表达“我是王”。在已经明确正在做自我介绍的场景里，日语经常省略主语。
+
+      中文初学者很容易机械地把“我是王”翻成 私は王です。这个句子本身没有错，但真实对话里没有必要每一句都重复 私は。
+
+      这里先把 です 理解为帮助名词构成礼貌陈述的形式即可，后面的课程会逐步解释它的使用范围。
+
+  - type: chinese_learner_note
+    title: 不要逐字把中文句子翻成日语
+    body: |-
+      中文常常明确说“我、你、他”，日语在上下文清楚时会大量省略这些成分。
+
+      所以学习日语时要优先记“这个场景日本人通常怎么说”，而不是先写一个完整中文句子，再逐词寻找日语对应词。
+
+  - type: explanation
+    title: 中国から来ました
+    body: |-
+      这句话在自我介绍里表示“我来自中国”。现阶段把 ～から来ました 作为一个完整表达使用。
+
+      中国（ちゅうごく）的汉字和中文完全相同，这是中文母语者的优势；但读音必须重新建立为日语读音，不要直接用汉语发音代替。
+
+  - type: exercise
+    prompt: 你正在自我介绍。请补完整：王___。
+    answer: です
+    explanation: 在这里“王です”自然表示“我是王”。上下文已经明确，不需要强行加 私は。
+    skill: usage
+
+  - type: exercise
+    prompt: 你想表达“我来自中国”。请写出本课学到的完整日语表达。
+    answer: 中国から来ました。
+    explanation: 本课先把 ～から来ました 当作表示来源的完整表达掌握，后续再拆解助词和动词变化。
+    skill: production
+
+  - type: production_task
+    prompt: 不看范文，用自己的姓名完成一次四步自我介绍。姓名可以直接使用你习惯的日语读法或暂时用中文姓名占位。
+    success_criteria:
+      - 使用 はじめまして 开始
+      - 说出自己的姓名并使用 です
+      - 使用 中国から来ました 表达来自中国
+      - 使用 よろしくお願いします 结束
+
+  - type: can_do_check
+    prompt: 如果现在遇到一个第一次见面的日本人，你能不看答案完成这四步自我介绍吗？
