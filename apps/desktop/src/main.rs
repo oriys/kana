@@ -2,7 +2,8 @@ use dioxus::prelude::*;
 use kana_curriculum::load_lesson;
 use kana_domain::LessonStep;
 
-const LESSON_YAML: &str = include_str!("../../../content/zh-CN/a1/unit-01/lesson-01.yaml");
+const LESSON_YAML: &str =
+    include_str!("../../../content/zh-CN/foundation/unit-00/lesson-01.yaml");
 const APP_CSS: &str = r#"
 :root {
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Hiragino Sans", sans-serif;
@@ -65,7 +66,7 @@ fn App() -> Element {
         div { class: "shell",
             aside { class: "sidebar",
                 div { class: "brand", "かな · Kana" }
-                div { class: "eyebrow", "A1 · Unit 1 · Lesson 1" }
+                div { class: "eyebrow", "Foundation · Unit 0 · Lesson 1" }
                 h1 { class: "lesson-title", "{lesson.title}" }
                 for goal in &lesson.can_do {
                     p { class: "can-do", "{goal}" }
