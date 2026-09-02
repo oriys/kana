@@ -1,0 +1,11 @@
+[package]
+name = "kana-desktop"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+dioxus.workspace = true
+kana-domain.workspace = true
+kana-curriculum.workspace = true
